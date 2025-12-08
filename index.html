@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MADHAN | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Iceland&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            height: 100vh;
+        }
+        
+        .butn {
+            background-color: black;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.4s ease;
+            box-shadow: none;
+            width: 60%;
+            align-self: center;
+        }
+        
+        .butn:hover {
+            background-color: rgb(121, 112, 112);
+        }
+        
+        .butn:active {
+            background-color: #434344;
+        }
+        
+        main {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .left {
+            background-color: black;
+            color: #fefefe;
+            font-size: 1200%;
+            font-family: "Iceland", sans-serif;
+            overflow: visible;
+        }
+        
+        .right {
+            display: flex;
+            flex-direction: column;
+            font-family: "Iceland", sans-serif;
+            color: white;
+            gap: 20px;
+        }
+        
+        .box {
+            width: 120%;
+            text-align: left;
+            font-size: larger;
+        }
+        
+        @media (max-width: 890px) {
+            main {
+                flex-direction: column;
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+        
+        .fade-in.active {
+            opacity: 1;
+        }
+        main{
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section class="left fade-in">HI !</section>
+        <section class="right ">
+            <div class="box ">
+                <h1 class="fade-in">
+
+                    I am MADHAN
+                </h1>
+                <h1 class="fade-in">
+
+                    Welcome to my Personal Website
+                </h1>
+            </div>
+            <div class="box fade-in">I have created this website to showcase my work and skills that I possess.</div>
+            <div class="box fade-in">You will find my Achivements and Links to Various Other Projects that are done by me.</div>
+            <button onclick="redirectToPage()" id="but" class="butn fade-in">ENTER THE SYSTEM</button>
+        </section>
+    </main>
+</body>
+<script>
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    window.addEventListener('load', async function() {
+
+        let elements = document.querySelectorAll(".fade-in");
+        for (const element of elements) {
+            element.classList.add("active");
+            await sleep(300);
+        }
+
+    });
+
+    function redirectToPage() {
+        window.location.href = "home.html";
+    }
+
+    async function autodirector() {
+
+        await sleep(10000)
+        const but = document.getElementById("but");
+        for (let index = 3; index > 0; index--) {
+            but.innerHTML = "ENTER THE SYSTEM" + '<p  style="color: red;">Auto Entry in:' + index + "</p>";
+            await sleep(1000)
+        }
+        redirectToPage()
+    }
+    autodirector();
+</script>
+
+</html>
